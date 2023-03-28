@@ -18,12 +18,10 @@ def get_html(url):
 """This method is to parse html and handling target data"""
 
 
-def parse_html(html):
+def parse_html(html, target_class):
     soup = BeautifulSoup(html, 'html.parser')
 
     # 提取所有新闻标题
-    news_titles = soup.find_all(class_='reference internal')
-
+    news_titles = soup.find_all(class_=target_class)
+    return news_titles
     # 打印新闻标题
-    for title in news_titles:
-        print(title.text.strip())
